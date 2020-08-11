@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM nikolaik/python-nodejs:python3.8-nodejs14
 COPY . .
 RUN installation.sh
 WORKDIR /src
