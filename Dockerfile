@@ -2,7 +2,7 @@ FROM python:3.8-slim-buster
 COPY . .
 RUN apt-get update
 RUN apt-get -y install curl
-RUN bin/bash curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x
 RUN apt install npm
 RUN echo "node version: " node --version
 RUN apt install git
