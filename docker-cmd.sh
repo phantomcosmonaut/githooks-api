@@ -1,6 +1,6 @@
 #!bin/bash
 echo "starting angular-githubapi"
 cd angular-gitapi
-apk git pull
+apt-get git pull
 npm install --production
 npm run ng build
