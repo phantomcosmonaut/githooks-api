@@ -1,7 +1,8 @@
 FROM python:3.8-slim-buster
 COPY . .
 RUN pip install -r requirements.txt
-RUN apt install curl
+RUN apt-get update
+RUN apt-get -y install curl
 RUN curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
 RUN apt install npm
 RUN echo "node version: " node --version
