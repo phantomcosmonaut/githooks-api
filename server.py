@@ -1,11 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
 
-pull_and_build = ["ngbuild.sh"]
+cmd = ["ngpull.sh"]
 
 app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def Post():
-    subprocess.Popen(pull_and_build, shell=True, executable="bin/bash")
+    subprocess.Popen(cmd, shell=True, executable="bin/bash")
+    return jsonify({"message": "Request received."})
 
 if __name__ == "__main__":
     app.run(host='localhost', port=6000)
