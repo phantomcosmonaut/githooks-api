@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import subprocess
 
 cmd = ["./ngpull.sh"]
@@ -11,7 +11,7 @@ def Handler():
     elif request.method == 'POST':
         process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
         stdout, stderr = process.communicate()
-        message = {"Output": stdout, "Status": process.returncode}
+        message = {"Output": stdout.strip(), "Status": process.returncode}
         status = 500 if process.returncode > 0 else 200
         return message, status
 
