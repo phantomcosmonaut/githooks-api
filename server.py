@@ -8,7 +8,7 @@ app = Flask(__name__)
 def Handler():
     if request.method == 'GET':
         return {"Message": "Server is up and running on port 6000"}, 200
-    else if request.method == 'POST':
+    elif request.method == 'POST':
         process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
         stdout, stderr = process.communicate()
         message = {"Output": stdout, "Status": process.returncode}
