@@ -11,7 +11,7 @@ def Handler():
     else if request.method == 'POST':
         process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         stdout, stderr = process.communicate()
-        message = {"Output": stdout, "Error": stderr}
+        message = {"Output": stdout, "Error": stderr, "Status": process.returncode}
         status = 500 if len(stderr) > 0 else 200
         return message, status
 
